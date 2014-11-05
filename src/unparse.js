@@ -67,7 +67,8 @@ function unparse(raw) {
         var fourLineArray = unparseLine(lines[i]);
         concatAry(out, fourLineArray);
     }
-    return out.join('\n');
+
+    return out.join(newline);
 }
 
 exports.replaceRange = replaceRange;

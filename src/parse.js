@@ -4,6 +4,7 @@ var dict = require('./dict.js');
 var _ = require('lodash-node');
 
 var newline = '\n'; // doesn't suppor \r
+var invalid = '?'; // doesn't suppor \r
 
 function getPos(charPos) {
 
@@ -40,7 +41,7 @@ function parseLine(fourLineArray) {
     var out = '';
     for (var i=1; i<10; i++) {
         var result = parseChar(fourLineArray, i);
-        out += (_.isUndefined(result)) ? '_' : result;
+        out += (_.isUndefined(result)) ? invalid : result;
     }
     return out;
 }

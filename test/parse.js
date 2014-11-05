@@ -98,7 +98,7 @@ describe('Parse', function() {
             badData[1] += '';
             badData[2] += '';
             badData[3] += '';
-            expect(parser.parseLine(badData)).toEqual('_________');
+            expect(parser.parseLine(badData)).toEqual('?????????');
         });
     });
 
@@ -132,7 +132,7 @@ describe('Parse', function() {
             var expected = '123456789\n' + '123456789\n' + '123456789\n' +
                            '123456789\n' + '123456789\n' + '123456789\n' +
                            '123456789\n' + '123456789\n' + '123456789\n' +
-                           '123456789\n' + '_________\n';
+                           '123456789\n' + '?????????\n';
             expect(parser.parseRaw(raw)).toEqual(expected);
         });
 
