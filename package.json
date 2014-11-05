@@ -1,0 +1,33 @@
+{
+  "name": "kata-node",
+  "version": "0.0.0",
+  "description": "TDD Kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/buwilliams/kata-node.git"
+  },
+  "keywords": [
+    "kata",
+    "tdd"
+  ],
+  "author": "Buddy Williams",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/buwilliams/kata-node/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "jshint": "~2.5.8",
+    "jshint-stylish": "~1.0.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jasmine-node": "~0.2.1"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "lodash-node": "~2.4.1"
+  }
+}
