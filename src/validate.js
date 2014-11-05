@@ -14,7 +14,7 @@ function validate(lines) {
     var chunks = lines.split(newline);
 
     for (var i=0; i<chunks.length; i++) {
-        out += chunks[i]
+        out += chunks[i];
         if(chunks[i].indexOf('?') > -1) {
             out += ' ILL' + newline;
         } else {
