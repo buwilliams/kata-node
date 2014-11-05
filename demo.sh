@@ -23,3 +23,9 @@ node src/index.js -v sample_files/sample3.txt tmp/sample3-result.txt
 echo See tmp/sample3-result.txt \(uses sample_files/sample3.txt\)
 
 echo
+
+echo Sample 4  - Parses invalid characters
+node src/index.js -f sample_files/sample4.txt tmp/sample4-result.txt
+echo See tmp/sample4-result.txt \(uses sample_files/sample4.txt\)
+
+echo
