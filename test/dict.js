@@ -4,6 +4,7 @@ describe('dictionary', function() {
 
     var dict = require('../src/dict.js');
     var data = require('../src/sample-data.js');
+    var ary = data.getArray();
 
     it('position 1 should return start 0 and end 3', function() {
         expect(dict.getPos(1)).toEqual({
@@ -28,19 +29,19 @@ describe('dictionary', function() {
 
     it('position 1 should be the correct key sequence for the number one',
     function() {
-        expect(dict.getKey(data.oneToNine, 1))
+        expect(dict.getKey(ary, 1))
             .toEqual('     |  |   ');
     });
 
     it('position 2 should be the correct key sequence for the number two',
     function() {
-        expect(dict.getKey(data.oneToNine, 2))
+        expect(dict.getKey(ary, 2))
             .toEqual(' _  _||_    ');
     });
 
     it('position 9 should be the correct key sequence for the number nine',
     function() {
-        expect(dict.getKey(data.oneToNine, 9))
+        expect(dict.getKey(ary, 9))
             .toEqual(' _ |_| _|   ');
     });
 

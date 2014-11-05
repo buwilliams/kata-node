@@ -2,23 +2,31 @@
 
 var dict = require('./dict.js');
 
-function getChar(fourLineArray, charPos) {
+function parseChar(fourLineArray, charPos) {
     return dict.decode[dict.getKey(fourLineArray, charPos)];
 }
 
-/*
 function parseLine(fourLineArray) {
+    var out = '';
+    for (var i=1; i<10; i++) {
+        var result = parseChar(fourLineArray, i);
+        out += (result) ? result : '_';
+    }
+    return out + /\n/;
 }
 
-function parseManyLines(stringContent) {
+function parseRaw(raw) {
+    var out = '';
+    var lines = raw.split(/\n/);
+    var curLine = 0;
+    while (curLine < lines.length) {
+        var fourLineArray = lines.slice(curLine, curLine+4);
+        out += parseLine(fourLineArray);
+        curLine += 4;
+    }
+    return out;
 }
 
-function getArray(stringContent) {
-    return stringContent.split(/\n/);
-}
-*/
-
-exports.getChar = getChar;
-//exports.parseLine = parseLine;
-//exports.parseManyLines = parseManyLines;
-//exports.getArray = getArray;
+exports.parseChar = parseChar;
+exports.parseLine = parseLine;
+exports.parseRaw = parseRaw;
