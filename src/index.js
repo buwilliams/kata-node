@@ -2,6 +2,7 @@ var _ = require('lodash-node');
 var gen = require('./generate.js');
 var fs = require('fs');
 var parser = require('./parse.js');
+var unparser = require('./unparse.js');
 
 var cmds = {
     '-p': {
@@ -13,6 +14,16 @@ var cmds = {
         fn: parseFileAndWrite,
         desc: 'Parses text file and writes to the specified file',
         usage: 'node src/index.js -f input.txt output.txt'
+    },
+    '-u': {
+        fn: unparseFileAndPrint,
+        desc: 'Unparses text file and printes results to stdout',
+        usage: 'node src/index.js -u input.txt'
+    },
+    '-w': {
+        fn: unparseFileAndWrite,
+        desc: 'Unparses text file and writes to the specified file',
+        usage: 'node src/index.js -w input.txt output.txt'
     },
     '-g': {
         fn: generate,
@@ -40,11 +51,11 @@ function generate() {
 }
 
 function parseFileAndPrint(args) {
-    var input = args[3];
+    var inputFile = args[3];
 
     // Throw up a message if the user didn't give us
     // an input file and a output file destination.
-    if(_.isUndefined(input)) {
+    if(_.isUndefined(inputFile)) {
         showHelp();
         console.log('----');
         console.log('ERROR: -p requires input.txt');
@@ -52,18 +63,22 @@ function parseFileAndPrint(args) {
         return;
     }
     
-    parseFile(input, function(str) {
-        console.log(str);
+    readFile(inputFile, function(data) {
+
+        // parse file
+        var txt = parser.parseRaw(data);
+
+        console.log(txt);
     });
 }
 
 function parseFileAndWrite(args) {
-    var input = args[3];
-    var output = args[4];
+    var inputFile = args[3];
+    var outputFile = args[4];
 
     // Throw up a message if the user didn't give us
     // an input file and a output file destination.
-    if(_.isUndefined(input) || _.isUndefined(output)) {
+    if(_.isUndefined(inputFile) || _.isUndefined(outputFile)) {
         showHelp();
         console.log('----');
         console.log('ERROR: -f requires input.txt output.txt');
@@ -71,23 +86,70 @@ function parseFileAndWrite(args) {
         return;
     }
 
-    parseFile(input, function(str) {
-        writeFile(output, str);
+    readFile(inputFile, function(data) {
+
+        // parse file
+        var txt = parser.parseRaw(data);
+
+        writeFile(outputFile, txt);
     });
 }
 
-function parseFile(fileLoc, callback) {
+function unparseFileAndPrint(args) {
+    var inputFile = args[3];
+
+    // Throw up a message if the user didn't give us
+    // an input file and a output file destination.
+    if(_.isUndefined(inputFile)) {
+        showHelp();
+        console.log('----');
+        console.log('ERROR: -u requires input.txt');
+        console.log('----');
+        return;
+    }
+    
+    readFile(inputFile, function(data) {
+
+        // parse file
+        var txt = unparser.unparse(data);
+
+        console.log(txt);
+    });
+}
+
+function unparseFileAndWrite(args) {
+    var inputFile = args[3];
+    var outputFile = args[4];
+
+    // Throw up a message if the user didn't give us
+    // an input file and a output file destination.
+    if(_.isUndefined(inputFile) || _.isUndefined(outputFile)) {
+        showHelp();
+        console.log('----');
+        console.log('ERROR: -w requires input.txt output.txt');
+        console.log('----');
+        return;
+    }
+
+    readFile(inputFile, function(data) {
+
+        // parse file
+        var txt = unparser.unparse(data);
+
+        writeFile(outputFile, txt);
+    });
+}
+
+function readFile(fileLoc, callback) {
 
     // read file
     fs.readFile(fileLoc, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
-        // parse file
-        var txt = parser.parseRaw(data);
 
         // write file
-        callback(txt);
+        callback(data);
     });
 }
 
