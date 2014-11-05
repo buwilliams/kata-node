@@ -1,6 +1,7 @@
 'use strict';
 
 var dict = require('./dict.js');
+var _ = require('lodash-node');
 
 function parseChar(fourLineArray, charPos) {
     return dict.decode[dict.getKey(fourLineArray, charPos)];
@@ -10,18 +11,18 @@ function parseLine(fourLineArray) {
     var out = '';
     for (var i=1; i<10; i++) {
         var result = parseChar(fourLineArray, i);
-        out += (result) ? result : '_';
+        out += (!_.isUndefined(result)) ? result : '_';
     }
-    return out + /\n/;
+    return out;
 }
 
 function parseRaw(raw) {
     var out = '';
-    var lines = raw.split(/\n/);
+    var lines = raw.split('\n');
     var curLine = 0;
     while (curLine < lines.length) {
         var fourLineArray = lines.slice(curLine, curLine+4);
-        out += parseLine(fourLineArray);
+        out += parseLine(fourLineArray) + '\n';
         curLine += 4;
     }
     return out;

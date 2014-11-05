@@ -42,4 +42,22 @@ describe('Parser', function() {
         expect(parser.parseChar(ary, 9)).toEqual('9');
     });
 
+    describe('Line', function() {
+
+        it('should be able to parse a whole line mixed', function() {
+            expect(parser.parseLine(data.getArrayMix()))
+                .toEqual('932456781');
+        });
+
+    });
+
+    /*
+    describe('Raw', function() {
+
+        it('', function() {
+        });
+
+    });
+    */
+
 });
