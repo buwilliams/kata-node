@@ -1,7 +1,7 @@
 var _ = require('lodash-node');
 var gen = require('./generate.js');
 var fs = require('fs');
-var parser = require('./parser.js');
+var parser = require('./parse.js');
 
 var cmds = {
     '-p': {

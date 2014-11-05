@@ -1,7 +1,7 @@
 'use strict';
 
 var dict = require('./dict.js');
-var parser = require('./parser.js');
+var parser = require('./parse.js');
 var _ = require('lodash-node');
 
 var newline = '\n'; // doesn't suppor \r

@@ -2,7 +2,7 @@
 
 var _ = require('lodash-node');
 var data = require('./sample-data.js');
-var parser = require('./parser.js');
+var parser = require('./parse.js');
 var ary = data.getFullArray();
 
 function log(pos, key, isPrefix) {

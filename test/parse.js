@@ -1,8 +1,8 @@
 'use strict';
 
-describe('Parser', function() {
+describe('Parse', function() {
 
-    var parser = require('../src/parser.js');
+    var parser = require('../src/parse.js');
     var data = require('../src/sample-data.js');
     var ary = data.getArray();
 
