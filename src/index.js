@@ -164,9 +164,7 @@ function validateAndWrite(args) {
 
         // parse file
         var txt = parser.parseRaw(data);
-        console.log(txt);
         txt = validator.validateLines(txt);
-        console.log(txt);
 
         writeFile(outputFile, txt);
     });

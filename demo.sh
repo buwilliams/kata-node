@@ -12,8 +12,8 @@ node src/index.js -f sample_files/sample1.txt tmp/sample1-result.txt
 echo See tmp/sample1-result.txt \(uses sample_files/sample1.txt\)
 echo 
 
-echo Sample 2  - Converts the pipe format to plain text with mixed numbers
-node src/index.js -f sample_files/sample2.txt tmp/sample2-result.txt
+echo Sample 2  - Converts plain text to pipe format
+node src/index.js -w sample_files/sample2.txt tmp/sample2-result.txt
 echo See tmp/sample2-result.txt \(uses sample_files/sample2.txt\)
 
 echo
