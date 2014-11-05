@@ -8,7 +8,7 @@ function checksum(line) {
     return (sum % 11) === 0;
 }
 
-function validate(lines) {
+function validateLines(lines) {
     var out = '';
 
     var chunks = lines.split(newline);
@@ -25,5 +25,5 @@ function validate(lines) {
     return out;
 }
 
-exports.validate = validate;
+exports.validateLines = validateLines
 exports.checksum = checksum;

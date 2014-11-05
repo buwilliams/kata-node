@@ -68,7 +68,6 @@ Codebase Features
 Todo
 ----
 
-  - Checksum
   - Read all the code again
   - Update README again
 
@@ -82,3 +81,4 @@ Done
   - Parse multiline
   - Parse text file
   - Output file
+  - Checksum

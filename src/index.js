@@ -164,7 +164,9 @@ function validateAndWrite(args) {
 
         // parse file
         var txt = parser.parseRaw(data);
-        txt = validator.validate(txt);
+        console.log(txt);
+        txt = validator.validateLines(txt);
+        console.log(txt);
 
         writeFile(outputFile, txt);
     });
@@ -188,8 +190,6 @@ function writeFile(fileLoc, content) {
     fs.writeFile(fileLoc, content, function(err) {
         if(err) {
             console.log(err);
-        } else {
-            console.log('The file was saved!');
         }
     }); 
 }
