@@ -12,7 +12,8 @@ Parses files that look like this:
 Getting Started
 ----
 
-(_Requires nodejs and npm_)
+(_Requires nodejs and npm. I apologize in advance if you need to install
+ them._)
 
 1. Clone Repository
 
@@ -22,7 +23,11 @@ Getting Started
 
   `$ npm install`
   
-3. Run Grunt to run unit tests
+3. Run demo (contains several samples as to how to use this utility)
+
+  `$ ./demo.sh`
+
+4. Run Grunt to run unit tests
 
   `$ grunt`
   
@@ -33,7 +38,7 @@ From your terminal:
   - `$ node src/index.js -p input.txt` - parse files and prints to stdout
   - `$ node src/index.js -f input.txt output.txt` - parse files and write results to a file
 
-_(There are more commands but these will get you started. There is also a nice input.txt file for you to experiment with.)_ 
+_(There are more commands but these will get you started.)_ 
 
 High-level Approach
 ----
@@ -49,11 +54,13 @@ The downside is that if you want to support more characters (other than 1-9) you
 Source Code Overview
 ---
 
-- `src/index.js` - Command-line interface
-- `src/generate.js` - Creates the dictionary
 - `src/dict.js` - The generated dictionary with a few helper methods
-- `src/parser.js` - The main interface for parsing strings and files
+- `src/generate.js` - Creates the dictionary
+- `src/index.js` - Command-line interface
+- `src/parse.js` - The main interface for parsing strings and files
 - `src/sample-data.js` - Easy access to the text format
+- `src/unparse.js` - Does the opposite of parse
+- `src/validate.js` - Uses a checksum to ensure valid numbers
 - `test/*` - TDD Unit Tests
 
 Codebase Features
@@ -68,8 +75,6 @@ Codebase Features
 Todo
 ----
 
-  - Read all the code again
-  - Update README again
 
 Done
 ----
@@ -82,3 +87,5 @@ Done
   - Parse text file
   - Output file
   - Checksum
+  - Read all the code again
+  - Update README again

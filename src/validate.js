@@ -25,5 +25,5 @@ function validateLines(lines) {
     return out;
 }
 
-exports.validateLines = validateLines
+exports.validateLines = validateLines;
 exports.checksum = checksum;
