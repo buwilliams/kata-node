@@ -29,10 +29,12 @@ Getting Started
   
 From your terminal:
 ----
-  - `$ node src/index.js` - Generate keys
-  - `$ node src/index.js in.txt out.txt` - parse files and write results to a file
+  - `$ node src/index.js -h` - shows help message
+  - `$ node src/index.js -p input.txt` - parse files and prints to stdout
+  - `$ node src/index.js -f input.txt output.txt` - parse files and write results to a file
 
-  
+_(There are more commands but these will get you started. There is also a nice input.txt file for you to experiment with.)_ 
+
 High-level Approach
 ----
 
@@ -66,11 +68,7 @@ Codebase Features
 Todo
 ----
 
-  - Parse line
-  - Parse multiline
-  - Parse text file
   - Checksum
-  - Output file
   - Read all the code again
   - Update README again
 
@@ -80,3 +78,7 @@ Done
   - Generate key map
   - Test framework setup
   - Setup Grunt
+  - Parse line
+  - Parse multiline
+  - Parse text file
+  - Output file
