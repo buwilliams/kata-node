@@ -97,7 +97,7 @@ function writeFile(fileLoc, content) {
         if(err) {
             console.log(err);
         } else {
-            console.log("The file was saved!");
+            console.log('The file was saved!');
         }
     }); 
 }

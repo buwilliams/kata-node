@@ -1,5 +1,14 @@
 'use strict';
 
+function getFullArray() {
+    var data = [];                                   
+    data[0] = '    _  _     _  _  _  _  _  _ ';         
+    data[1] = '  | _| _||_||_ |_   ||_||_|| |';         
+    data[2] = '  ||_  _|  | _||_|  ||_| _||_|';         
+    data[3] = '                              ';
+    return data;
+}
+
 function getArray() {
     var data = [];                                   
     data[0] = '    _  _     _  _  _  _  _ ';         
@@ -35,6 +44,7 @@ function getManyLines(howMany) {
     return out;
 }
 
+exports.getFullArray = getFullArray;
 exports.getArray = getArray;
 exports.getArrayMix = getArrayMix;
 exports.getLine = getLine;
