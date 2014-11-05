@@ -3,6 +3,7 @@ var gen = require('./generate.js');
 var fs = require('fs');
 var parser = require('./parse.js');
 var unparser = require('./unparse.js');
+var validator = require('./validate.js');
 
 var cmds = {
     '-p': {
@@ -29,6 +30,11 @@ var cmds = {
         fn: generate,
         desc: 'Generates new keys for dictionary',
         usage: 'node src/index.js -g'
+    },
+    '-v': {
+        fn: validateAndWrite,
+        desc: 'Parses text file, validates, and writes output to file',
+        usage: 'node src/index.js -v input.txt output.txt'
     },
     '-h': {
         fn: showHelp,
@@ -135,6 +141,30 @@ function unparseFileAndWrite(args) {
 
         // parse file
         var txt = unparser.unparse(data);
+
+        writeFile(outputFile, txt);
+    });
+}
+
+function validateAndWrite(args) {
+    var inputFile = args[3];
+    var outputFile = args[4];
+
+    // Throw up a message if the user didn't give us
+    // an input file and a output file destination.
+    if(_.isUndefined(inputFile) || _.isUndefined(outputFile)) {
+        showHelp();
+        console.log('----');
+        console.log('ERROR: -v requires input.txt output.txt');
+        console.log('----');
+        return;
+    }
+
+    readFile(inputFile, function(data) {
+
+        // parse file
+        var txt = parser.parseRaw(data);
+        txt = validator.validate(txt);
 
         writeFile(outputFile, txt);
     });
