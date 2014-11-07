@@ -32,5 +32,50 @@ describe('Validate', function() {
 
     });
 
+    describe('Fix Charater', function() {
+
+        var brokenChar = '' +
+            '   \n' +
+            '|_|\n' +
+            ' _|\n' +
+            '   \n';
+
+        var correctChar = '' +
+            ' _ \n' +
+            '|_|\n' +
+            ' _|\n' +
+            '   \n';
+
+        var filter = function(n) {
+            return n.replace(/\n/g, '');
+        };
+
+        it('broken char should return 1 mismatch with correct char',
+                function() {
+            expect(validate.countMismatch(filter(brokenChar),
+                                          filter(correctChar)))
+                .toEqual(1);
+        });
+
+    /*
+        xit('should fix a broken nine to an actual nine',
+                function() {
+            expect(validate.tryToFix(brokenChar))
+                .toEqual(correctChar);
+        });
+        
+        it('should fix a broken nine to an actual nine',
+                function() {
+            var filter = function(n) {
+                return n.replace(/\n/g, '');
+            };
+
+            expect(validate.tryToFix(filter(brokenChar)))
+                .toEqual(filter(correctChar));
+        });
+        */
+
+
+    });
 });
 

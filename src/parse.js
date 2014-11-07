@@ -34,6 +34,7 @@ function getKey(fourLineArray, charPos) {
 }
 
 function parseChar(fourLineArray, charPos) {
+    // validation goes here
     return dict.decode[getKey(fourLineArray, charPos)];
 }
 

@@ -1,3 +1,6 @@
+//var parser = require('./parse.js');
+//var dict = require('./dict.js');
+
 var newline = '\n';
 
 function checksum(line) {
@@ -25,5 +28,23 @@ function validateLines(lines) {
     return out;
 }
 
+function countMismatch(key1, key2) {
+    var mismatch = 0;
+    for(var i=0; i<key1.length; i++) {
+        var char1 = key1.charAt(i);
+        var char2 = key2.charAt(i);
+        if(char1 !== char2) {
+            mismatch++;
+        }
+    }
+    return mismatch;
+}
+
+function tryToFix(str) {
+    return str;
+}
+
+exports.countMismatch = countMismatch;
 exports.validateLines = validateLines;
 exports.checksum = checksum;
+exports.tryToFix = tryToFix;
